@@ -58,4 +58,3 @@ INSERT INTO trainer (name, category, experience_years) VALUES
 INSERT INTO member (name, membership_type, join_date) VALUES
                                                           ('Андрій Коваль', 'Premium', '2023-01-15'),
                                                           ('Марія Литвин', 'Standard', '2024-03-12');
-
