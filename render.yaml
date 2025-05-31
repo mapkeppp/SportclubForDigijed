@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: sportclub-app
+    runtime: docker
+    plan: free
+    envVars:
+      - key: JWT_SECRET
+        value: your-secret-here
+      - key: DB_URL
+        value: jdbc:h2:mem:testdb
+      - key: DB_USER
+        value: sa
+      - key: DB_PASS
+        value: ""

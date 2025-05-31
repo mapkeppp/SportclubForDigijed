@@ -14,8 +14,6 @@ public class Member {
     private String membershipType;
     private LocalDate joinDate;
 
-    // геттери і сеттери
-
     public Long getId() {
         return id;
     }

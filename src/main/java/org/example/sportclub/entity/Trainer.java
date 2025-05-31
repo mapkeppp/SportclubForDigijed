@@ -12,8 +12,6 @@ public class Trainer {
     private String category;
     private int experienceYears;
 
-    // геттери і сеттери
-
     public Long getId() {
         return id;
     }

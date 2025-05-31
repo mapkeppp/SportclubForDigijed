@@ -21,8 +21,6 @@ public class TrainingSession {
     @JoinColumn(name = "member_id", nullable = false)
     private Member member;
 
-    // геттери і сеттери
-
     public Long getId() {
         return id;
     }
