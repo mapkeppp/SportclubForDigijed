@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
@@ -18,30 +19,30 @@
     </parent>
 
     <properties>
+        <!-- Використовуємо Java 21 -->
         <java.version>21</java.version>
     </properties>
 
     <dependencies>
-
-        <!-- Core Spring Boot -->
+        <!-- 1) Основний стартер Spring Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- Spring Data JPA -->
+        <!-- 2) Spring Data JPA (для роботи з БД через Hibernate) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
-        <!-- Spring Security -->
+        <!-- 3) Spring Security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
-        <!-- JWT -->
+        <!-- 4) JJW T-API (версія 0.12.6) -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
@@ -60,28 +61,28 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- H2 для локальної БД -->
+        <!-- 5) H2 Database (runtime) для локальної тестової БД -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Logstash для логування -->
+        <!-- 6) Logstash-Logback Encoder (для надсилання логів у Logstash) -->
         <dependency>
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
             <version>7.3</version>
         </dependency>
 
-        <!-- Lombok -->
+        <!-- 7) Lombok (щоб не писати зайвий boilerplate‐код) -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
-        <!-- Тестування -->
+        <!-- 8) Тестові залежності: Spring Boot Test + Security Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -92,15 +93,16 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
         <plugins>
+            <!-- Плагін для збирання Spring Boot “fat-jar” -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <!-- Виключаємо пакування lombok до фінального jar’у (не обов’язково, але часто роблять) -->
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
